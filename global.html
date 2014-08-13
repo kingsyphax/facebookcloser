@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Global Page</title>
+		<script type="text/javascript">
+			function giveWebsite(event)
+			{
+				if (event.name === "wantwebsite")
+				{
+					//alert(event.target.page);
+					event.target.page.dispatchMessage("website", safari.extension.settings.website);
+				}
+			}
+			
+			safari.application.addEventListener("message", giveWebsite, false);
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
