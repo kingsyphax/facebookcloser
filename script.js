@@ -7,17 +7,27 @@ $(function() {
 	{
 		var counter = 30;
 		var addition = 10;
+		
+		var element = $("a#findFriendsNav").parent("li");
+		var weirdclasses = $(element).attr("class");
+		
+		var htmlString = "<li class=\"" + weirdclasses + "\">" + $(element).html() + "</li>";
+		
+		htmlString = htmlString.replace("findFriendsNav", "facebookCloserNav");
+		htmlString = htmlString.replace("Find Friends", "30");
+		
+		$(element).after(htmlString);
 	
-		$("a#findFriendsNav").attr("href", "#");
-		$("a#findFriendsNav").click(function() {
+		$("a#facebookCloserNav").attr("href", "#");
+		$("a#facebookCloserNav").click(function() {
 			if (addition > 0) {
 				counter += addition--;
-				$("a#findFriendsNav").html(counter);
+				$("a#facebookCloserNav").html(counter);
 			}
 		});
 				
 		var interval = setInterval(function() {
-			$("a#findFriendsNav").html(counter--);
+			$("a#facebookCloserNav").html(counter--);
 			// make another li next to it instead!
 			var currentLoc = window.location;
 			if ((counter < 1 && counter > -1) || (counter < 0 && counter % 30 == 0))
